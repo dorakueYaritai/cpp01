@@ -1,3 +1,6 @@
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
+
 #include <iostream>
 #include <string>
 
@@ -14,20 +17,4 @@ public:
 	void	randomChump( std::string name );
 };
 
-Zombie::Zombie(std::string name){
-	this->name = name;
-	this->announce();
-}
-
-Zombie::~Zombie(){
-	std::cout << this->name << ": destroied" << std::endl;
-}
-
-Zombie* newZombie( std::string name ){
-	Zombie	*instance =  new Zombie(name);
-	return (instance);
-}
-
-void	Zombie::announce( void ){
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

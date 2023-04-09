@@ -8,6 +8,7 @@ int	main(){
 	name = "tarou2";
 	Zombie	*zom2 = newZombie(name);
 	delete(zom2);
-	// Zombie1.newZombie(name);
-
+	Zombie	*zom3 = newZombie(name);
+	delete(zom3);
+	randomChump("tarouLP");
 }
