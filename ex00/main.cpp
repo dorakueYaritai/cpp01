@@ -1,14 +1,16 @@
 #include "Zombie.hpp"
 
-int	main(){
-	std::string name;
-
-	name = "tarou";
-	Zombie	Zombie1(name);
-	name = "tarou2";
-	Zombie	*zom2 = newZombie(name);
-	delete(zom2);
-	Zombie	*zom3 = newZombie(name);
-	delete(zom3);
-	randomChump("tarouLP");
+int	main()
+{
+	{
+		Zombie Zom_def;
+	}
+	Zombie	Zom_don("DON CHAN");
+	{
+		randomChump("poti");
+		Zombie	*zom2 = newZombie("tama");
+		delete(zom2);
+		Zombie	*zom3 = newZombie("coron");
+		delete(zom3);
+	}
 }
