@@ -106,5 +106,3 @@ void	testPtrRefScope( void ){
 	niceguyB.attack();
 	std::cout << std::endl;
 }
-
-
