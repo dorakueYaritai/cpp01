@@ -7,8 +7,9 @@
 class Weapon{
 	public:
 		Weapon();
-		Weapon(Weapon &weapon);
+		// Weapon(Weapon &weapon);
 		Weapon(std::string type);
+		Weapon(Weapon &weapon, std::string type);
 		~Weapon();
 		std::string	getType( void );
 		void		setType( std::string type );
@@ -20,5 +21,6 @@ class Weapon{
 #define WHITE "\x1b[37m"
 #define RED "\x1b[31m"
 #define BLUE "\x1b[34m"
+#define GLEEN "\x1b[32m"
 
 #endif
