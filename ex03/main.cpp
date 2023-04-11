@@ -106,3 +106,9 @@ void	testPtrRefScope( void ){
 	niceguyB.attack();
 	std::cout << std::endl;
 }
+
+
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q exe");
+}

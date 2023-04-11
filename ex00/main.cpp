@@ -14,3 +14,8 @@ int	main()
 		delete(zom3);
 	}
 }
+
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q exe");
+}

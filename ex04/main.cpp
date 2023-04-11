@@ -148,3 +148,8 @@ int	main( int argc, char *argv[] ){
 	if (makeReplace(text, argv[1], argv[2], argv[3]))
 		return (3);
 }
+
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q exe");
+}

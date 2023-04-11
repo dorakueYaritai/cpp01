@@ -1,3 +1,5 @@
+
+
 #ifndef HERL_HPP
 #define HERL_HPP
 
@@ -17,6 +19,7 @@ public:
 	~Herl();
 	void	(Herl::*complains[NUM_FUNCTIONS])(void);
 	void	complain( std::string level );
+	void	filter( std::string complain );
 };
 
 #define BLACK "\x1b[30m"
