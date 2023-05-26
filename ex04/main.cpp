@@ -60,7 +60,7 @@
 // 	// std::cout << text << std::endl;
 // }
 
-bool	read_ifs(char *argv, std::string& text){
+int	read_ifs(char *argv, std::string& text){
 	std::string buf;
 
 	std::ifstream	ifs(argv);
@@ -111,7 +111,30 @@ bool	read_ifs(char *argv, std::string& text){
 // 	return (ret);
 // }
 
-bool	makeReplace(std::string text, std::string file, char *search, char *change)
+int	replace_null(std::string text, std::string file, char *change)
+{
+	std::size_t			start = 0;
+	std::size_t			find_index;
+	std::string			ret;
+
+	file.append(".replace");
+	std::ofstream	ofs(file.c_str());
+	if (ofs.fail())
+		return (ERROR);
+	while (1)
+	{
+		find_index = text.find('\0', start);
+		ret.append(text, start, find_index - start);
+		if (find_index == std::string::npos)
+			break ;
+		ret.append(change);
+		start = find_index + 1;
+	}
+	ofs << ret;
+	return (SUCSESS);
+}
+
+int	makeReplace(std::string text, std::string file, char *search, char *change)
 {
 	std::size_t			start = 0;
 	std::size_t			find_index;
@@ -119,8 +142,7 @@ bool	makeReplace(std::string text, std::string file, char *search, char *change)
 	std::string			ret;
 
 	if (search[0] == '\0')
-		return (ERROR);
-
+		return (replace_null(text, file, change));
 	file.append(".replace");
 	std::ofstream	ofs(file.c_str());
 	if (ofs.fail())
